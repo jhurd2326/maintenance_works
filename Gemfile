@@ -10,6 +10,7 @@ end
 gem "bcrypt"
 gem "bootstrap", "~>4.0.0.beta2.1"
 gem "coffee-rails", "~> 4.2"
+gem "font-awesome-rails"
 gem "haml"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"

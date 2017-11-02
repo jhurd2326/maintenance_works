@@ -7,15 +7,24 @@
         .col-sm-6
           = image_tag("maintenanceWorks.png", class: "img-fluid")
       .col-lg-6.d-flex.align-items-center.justify-content-start
-        .col-lg-4.text-center
-          %h2{style: "color: white;"} Register
+        .col-lg-5
+          %h2.white-text.text-center Register
           = form_for @user do |f|
-            .form-group
-              = f.text_field :username, class: "form-control", placeholder: "Username"
-            .form-group
-              = f.text_field :email, class: "form-control", placeholder: "Email"
-            .form-group
-              = f.password_field :password, class: "form-control", placeholder: "Password"
-            .form-group
-              = f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation"
-            = f.submit "Register", class: "btn btn-default"
+            .md-form.my-5
+              %i.fa.fa-user-o.prefix.white-text
+              = f.text_field :username, class: "white-text"
+              %small.mx-5.white-text Username
+            .md-form.my-5
+              %i.fa.fa-envelope-o.prefix.white-text
+              = f.text_field :email, class: "white-text"
+              %small.mx-5.white-text Email
+            .md-form.my-5
+              %i.fa.fa-lock.prefix.white-text
+              = f.password_field :password, class: "white-text"
+              %small.mx-5.white-text Password
+            .md-form.my-5
+              %i.fa.fa-lock.prefix.white-text
+              = f.password_field :password_confirmation, class: "white-text"
+              %small.mx-5.white-text Password Confirmation
+            .my-3.text-center
+              = f.submit "Register", class: "btn btn-default"
