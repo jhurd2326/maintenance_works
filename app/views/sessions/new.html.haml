@@ -1,0 +1,15 @@
+= content_for :title, "Login"
+
+.login_form
+  %h1 Log In
+  = form_for(:session, action: "create") do |f|
+    %p
+      Username
+      %br
+      = f.text_field :username
+    %p
+      Password
+      %br
+      = f.password_field :password
+    = f.submit "Log In"
+  = link_to "Don't have an account?", register_path

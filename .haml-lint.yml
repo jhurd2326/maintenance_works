@@ -31,8 +31,7 @@ linters:
     enabled: true
 
   FinalNewline:
-    enabled: true
-    present: true
+    enabled: false
 
   HtmlAttributes:
     enabled: true

@@ -1,0 +1,27 @@
+= content_for :title, "Sign Up"
+
+.register_form
+  %h1 Sign Up
+  = form_for @user do |f|
+    %p
+      Username:
+      %br
+      = f.text_field :username
+    %p
+      Email:
+      %br
+      = f.text_field :email
+    %p
+      Password:
+      %br
+      = f.password_field :password
+    %p
+      Password Confirmation:
+      %br
+      = f.password_field :password_confirmation
+    = f.submit :Signup
+
+  = if @user.errors.any?
+    %ul.sign_up_errors
+      = @user.errors.full_messages.each do |message_error|
+        %li= message_error
