@@ -1,27 +1,21 @@
 = content_for :title, "Sign Up"
 
-.register_form
-  %h1 Sign Up
-  = form_for @user do |f|
-    %p
-      Username:
-      %br
-      = f.text_field :username
-    %p
-      Email:
-      %br
-      = f.text_field :email
-    %p
-      Password:
-      %br
-      = f.password_field :password
-    %p
-      Password Confirmation:
-      %br
-      = f.password_field :password_confirmation
-    = f.submit :Signup
-
-  = if @user.errors.any?
-    %ul.sign_up_errors
-      = @user.errors.full_messages.each do |message_error|
-        %li= message_error
+#intro.view.hm-black-slight.h-100
+  .container-fluid.full-bg-img.d-flex.align-items-center.justify-content-center.h-100
+    .row.d-flex.w-100
+      .col-lg-6.d-flex.align-items-center.justify-content-end
+        .col-sm-6
+          = image_tag("maintenanceWorks.png", class: "img-fluid")
+      .col-lg-6.d-flex.align-items-center.justify-content-start
+        .col-lg-4.text-center
+          %h2{style: "color: white;"} Register
+          = form_for @user do |f|
+            .form-group
+              = f.text_field :username, class: "form-control", placeholder: "Username"
+            .form-group
+              = f.text_field :email, class: "form-control", placeholder: "Email"
+            .form-group
+              = f.password_field :password, class: "form-control", placeholder: "Password"
+            .form-group
+              = f.password_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation"
+            = f.submit "Register", class: "btn btn-default"

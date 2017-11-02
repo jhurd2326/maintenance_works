@@ -1,15 +1,18 @@
 = content_for :title, "Login"
 
-.login_form
-  %h1 Log In
-  = form_for(:session, action: "create") do |f|
-    %p
-      Username
-      %br
-      = f.text_field :username
-    %p
-      Password
-      %br
-      = f.password_field :password
-    = f.submit "Log In"
-  = link_to "Don't have an account?", register_path
+#intro.view.hm-black-slight.h-100
+  .container-fluid.full-bg-img.d-flex.align-items-center.justify-content-center.h-100
+    .row.d-flex.w-100
+      .col-lg-6.d-flex.align-items-center.justify-content-end
+        .col-sm-6
+          = image_tag("maintenanceWorks.png", class: "img-fluid")
+      .col-lg-6.d-flex.align-items-center.justify-content-start
+        .col-lg-4.text-center
+          %h2{style: "color: white;"} Login
+          = form_for(:session, action: "create") do |f|
+            .form-group
+              = f.text_field :username, class: "form-control", placeholder: "Username"
+            .form-group
+              = f.password_field :password, class: "form-control", placeholder: "Password"
+            = f.submit "Log In", class: "btn btn-default"
+          = link_to "Don't have an account?", register_path
