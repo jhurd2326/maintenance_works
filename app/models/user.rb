@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   def self.authenticate(username = "", pass = "")
     user = User.find_by(username: username)
-    return user if user && user.match_password(pass)
+    return user if user&.match_password(pass)
     false
   end
 
