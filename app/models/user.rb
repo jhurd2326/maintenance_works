@@ -4,19 +4,30 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  username   :string(255)
-#  email      :string(255)
-#  password   :string(255)
-#  salt       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  username     :string(255)
+#  email        :string(255)
+#  password     :string(255)
+#  salt         :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  first_name   :string(255)
+#  last_name    :string(255)
+#  hospital_id  :integer
+#  access_level :string(255)
 #
 
 require "bcrypt"
 
 class User < ApplicationRecord
   include BCrypt
+
+  has_many :requests
+  has_many :notes
+  has_many :roles, dependent: :destroy
+  has_one :verified_phone_number, dependent: :destroy
+
+  belongs_to :hospital
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :username, presence: true, uniqueness: true, length: { in: 3..20 }
