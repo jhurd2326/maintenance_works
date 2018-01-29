@@ -1,10 +1,20 @@
 !!!
 %html
   %head
-    %title MaintenanceWorx
+    %title MaintenanceWorks
     = csrf_meta_tags
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload"
     = javascript_include_tag "application", "data-turbolinks-track": "reload"
 
   %body
+    %nav.navbar.navbar-dark.fixed-top.transparent.justify-content-between
+      .logo
+        - if logged_in?
+          = link_to "MaintenanceWorks", dashboard_path, class: "navbar-brand"
+        - else
+          = link_to "MaintenanceWorks", login_path, class: "navbar-brand"
+      .navbar-nav
+        - if logged_in?
+          = link_to "Logout", logout_path, class: "nav-item nav-link"
+          
     = yield

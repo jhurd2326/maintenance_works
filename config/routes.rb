@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   root "sessions#new"
   resources :users
 
-  get "/home", to: "static_pages#home"
+  get "/dashboard", to: "static_pages#dashboard"
 end

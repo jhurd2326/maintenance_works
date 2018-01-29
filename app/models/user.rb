@@ -44,9 +44,10 @@ class User < ApplicationRecord
   end
 
   def encrypt_password
-    return unless password.present?
+    return if salt.present? || !password.present?
     self.salt = BCrypt::Engine.generate_salt
     self.password = BCrypt::Engine.hash_secret(password, salt)
+    self
   end
 
   def match_password(pass = "")

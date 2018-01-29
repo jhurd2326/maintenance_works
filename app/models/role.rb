@@ -16,7 +16,7 @@ class Role < ApplicationRecord
 
   LEVELS = %w(
     admin
-    maintenence_worker
+    maintenance_worker
     hospital_employee
     outside_user
   )

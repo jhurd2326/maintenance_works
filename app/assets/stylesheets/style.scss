@@ -1,0 +1,42 @@
+html,
+body,
+header,
+#intro
+{
+  height: 100%;
+}
+
+#intro
+{
+  background: url("hospitalPurple.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.dashboard-button
+{
+  width: 200px;
+  height: 200px;
+  border: 3px solid white;
+  border-radius: 30px;
+}
+
+a
+{
+  .dashboard-button
+  {
+    color: white;
+  }
+}
+
+a:hover
+{
+  text-decoration: none;
+  .dashboard-button
+  {
+    color: #E1BEE7;
+    border-color: #E1BEE7;
+  }
+}
