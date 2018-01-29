@@ -13,4 +13,11 @@
 
 class Role < ApplicationRecord
   belongs_to :user
+
+  LEVELS = %w(
+    admin
+    maintenence_worker
+    hospital_employee
+    outside_user
+  )
 end

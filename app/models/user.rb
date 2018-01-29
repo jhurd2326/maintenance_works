@@ -27,7 +27,7 @@ class User < ApplicationRecord
   has_many :roles, dependent: :destroy
   has_one :verified_phone_number, dependent: :destroy
 
-  belongs_to :hospital
+  belongs_to :hospital, optional: true
 
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :username, presence: true, uniqueness: true, length: { in: 3..20 }
@@ -51,5 +51,9 @@ class User < ApplicationRecord
 
   def match_password(pass = "")
     password == BCrypt::Engine.hash_secret(pass, salt)
+  end
+
+  Role::LEVELS.each do |level|
+    define_method("#{level}?") { access_level == level }
   end
 end
