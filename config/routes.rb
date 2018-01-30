@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root "sessions#new"
   resources :users
+  resources :requests
+  resources :notes
 
   get "/dashboard", to: "static_pages#dashboard"
 end
