@@ -7,7 +7,7 @@
     = javascript_include_tag "application", "data-turbolinks-track": "reload"
 
   %body
-    %nav.navbar.navbar-dark.fixed-top.transparent.justify-content-between
+    %nav.navbar.navbar-dark.fixed-top.custom-purple.justify-content-between
       .logo
         - if logged_in?
           = link_to "MaintenanceWorks", dashboard_path, class: "navbar-brand"
@@ -16,5 +16,6 @@
       .navbar-nav
         - if logged_in?
           = link_to "Logout", logout_path, class: "nav-item nav-link"
-          
+
+
     = yield

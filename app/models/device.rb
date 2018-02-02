@@ -15,6 +15,10 @@
 #
 
 class Device < ApplicationRecord
+  validates :manufacturer, presence: true
+  validates :model, presence: true
+  validates :serial_number, presence: true
+
   has_many :requests, dependent: :destroy
 
   belongs_to :hospital

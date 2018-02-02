@@ -1,24 +1,39 @@
 = content_for :title, "Login"
 
-#intro.view.hm-black-slight.h-100
-  .container-fluid.full-bg-img.d-flex.align-items-center.justify-content-center.h-100
-    .row.d-flex.w-100
-      .col-lg-6.d-flex.align-items-center.justify-content-end
-        .col-sm-6
-          = image_tag("maintenanceWorks.png", class: "img-fluid")
-      .col-lg-6.d-flex.align-items-center.justify-content-start
-        .col-lg-5
-          %h2.white-text.text-center Login
-          = form_for(:session, action: "create") do |f|
-            .md-form.my-5
-              %i.fa.fa-user-o.prefix.white-text
-              = f.text_field :username, class: "text-white"
-              = f.label :username, "Username"
-            .md-form.my-5
-              %i.fa.fa-lock.prefix.white-text
-              = f.password_field :password, class: "text-white"
-              = f.label :password, "Password"
-            .text-center
-              = f.submit "Log In", class: "btn btn-default"
-          .my-3.text-center
-            = link_to "Don't have an account?", register_path
+.flex-center
+  .row.d-flex
+    #img.col-lg-6.d-flex.align-items-center.justify-content-center.mb-5
+      .col-sm-6
+        = image_tag("maintenanceWorks.png", class: "img-fluid")
+    #login.col-lg-6.d-flex.align-items-center.justify-content-center
+      .col-8
+        %h2.white-text.text-center Login
+        = form_for(:session, action: "create") do |f|
+          .md-form.my-5
+            %i.fa.fa-user-o.prefix.white-text
+            = f.text_field :username, class: "text-white"
+            = f.label :username, "Username"
+          .md-form.my-5
+            %i.fa.fa-lock.prefix.white-text
+            = f.password_field :password, class: "text-white"
+            = f.label :password, "Password"
+          .text-center
+            = f.submit "Log In", class: "btn", style: "background-color: #c080fc"
+        .my-3.text-center
+          = link_to "Don't have an account?", register_path
+
+
+:javascript
+  $(window).on('load', function() {
+    if($(window).width() > 1000) {
+      $('#img').addClass('justify-content-end');
+      $('#login').addClass('justify-content-start');
+      $('#img').removeClass('justify-content-center');
+      $('#login').removeClass('justify-content-center')
+    }else{
+      $('#login').addClass('justify-content-center')
+      $('#img').addClass('justify-content-center');
+      $('#img').removeClass('justify-content-end');
+      $('#login').removeClass('justify-content-start');
+    }
+  })

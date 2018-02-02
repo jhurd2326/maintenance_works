@@ -13,6 +13,8 @@
 #
 
 class Note < ApplicationRecord
+  validates :content, presence: true
+
   belongs_to :request
   belongs_to :user
 end

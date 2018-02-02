@@ -1,35 +1,36 @@
-= content_for :title, "Sign Up"
-
-#intro.view.hm-black-slight
-  .container-fluid.full-bg-img.pt-5.mt-5
-    .row.text-center
+.container.d-flex.justify-content-center
+  .col-xl-8.card
+    .row.text-center.mt-5
       .col-12
-        %h2.white-text New Maintenance Request
+        %h1 New Maintenance Request
 
     .row.d-flex.justify-content-center
-      .col-6
+      .col-8
         = form_for @request do |f|
+
+          %h3.text-center.my-5 Device Information
+          .form-group
+            = f.label :equipment_type, class: "small"
+            = f.collection_select :equipment_type, EquipmentType::TYPES, :to_s,
+              :to_s, {include_blank: true}, {class: "custom-dropdown form-control"}
+
           .md-form.my-5
-            = f.text_field :device_id, class: "white-text"
-            = f.label :device_id, "Device Unique ID", class: "text-white"
+            = f.text_field :manufacturer
+            = f.label :manufacturer
 
-          .my-5
-            %h6.text-white
-              Is the item repairable?
-            .radio-button-group.d-flex.justify-content-start
-              .d-flex.mr-5
-                .mr-2
-                  = f.radio_button :repairable, true, class: "md-radio", checked: true
-                  = f.label :repairable, "Yes", value: "true", class: "text-white"
-              .d-flex.mr-5
-                .mr-2
-                  = f.radio_button :repairable, false, class: "md-radio"
-                  = f.label :repairable, "No", value: "false", class: "text-white"
+          .md-form.my-5
+            = f.text_field :model
+            = f.label :model
 
-          = f.fields_for :notes do |note_form|
-            .md-form.my-5
-              = note_form.text_area :content, class: "md-textarea text-white"
-              = label :content, "Note", class: "text-white"
+          .md-form.my-5
+            = f.text_field :serial_number
+            = f.label :serial_number
+
+          = render 'problem_form', f: f
+
+          .md-form.my-5
+            = f.text_area :note_content, class: "md-textarea"
+            = label :note_content, "Write note here..."
 
           .my-3.text-center
-            = f.submit "Submit", class: "btn btn-default"
+            = f.submit "Submit", class: "btn custom-purple-light"

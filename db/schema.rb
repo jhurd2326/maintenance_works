@@ -10,16 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116210936) do
+ActiveRecord::Schema.define(version: 20180201220905) do
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "quantity"
     t.string "cost"
-    t.text "description"
-    t.string "name"
     t.integer "hospital_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "serial_number"
+    t.string "model"
+    t.string "equipment_type"
+    t.string "manufacturer"
   end
 
   create_table "hospitals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -41,19 +42,20 @@ ActiveRecord::Schema.define(version: 20171116210936) do
   end
 
   create_table "requests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean "repairable"
     t.integer "hospital_id"
     t.integer "device_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "user_id"
-    t.string "level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean "repaired"
+    t.boolean "abandoned"
+    t.boolean "plumbing_problem"
+    t.boolean "motor_problem"
+    t.boolean "electric_problem"
+    t.boolean "mechanical_problem"
+    t.boolean "power_problem"
+    t.boolean "training_problem"
+    t.boolean "other_problem"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

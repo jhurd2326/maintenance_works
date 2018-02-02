@@ -1,37 +1,35 @@
-#intro.view.hm-black-slight
-  .container-fluid.full-bg-img.pt-5.mt-5
-    .container
-      .row.mb-5
-        .col-lg-12.text-center
-          %h1.text-white Maintenance Requests
+.container
+  .row.mb-5
+    .col-lg-12.text-center
+      %h1.text-white Maintenance Requests
 
-      .row
-        .col-lg-4.mb-3
-          .d-flex.justify-content-center
-            = link_to new_request_path do
-              .dashboard-button
-                .d-flex.h-100.justify-content-center.align-items-center
-                  .icon-info.text-center
-                    %h1
-                      %i.fa.fa-cogs{ "aria-hidden" => "true" }
-                    %h3 New
+  .row
+    .col-lg-4.mb-3
+      .d-flex.justify-content-center
+        = link_to new_request_path do
+          .dashboard-button
+            .d-flex.h-100.justify-content-center.align-items-center
+              .icon-info.text-center
+                %h1
+                  %i.fa.fa-wrench{ "aria-hidden" => "true" }
+                %h3 New
 
-        .col-lg-4.mb-3
-          .d-flex.justify-content-center
-            = link_to "#" do
-              .dashboard-button
-                .d-flex.h-100.justify-content-center.align-items-center
-                  .icon-info.text-center
-                    %h1
-                      %i.fa.fa-list{ "aria-hidden" => "true" }
-                    %h3 View
+    .col-lg-4.mb-3
+      .d-flex.justify-content-center
+        = link_to "#" do
+          .dashboard-button
+            .d-flex.h-100.justify-content-center.align-items-center
+              .icon-info.text-center
+                %h1
+                  %i.fa.fa-list{ "aria-hidden" => "true" }
+                %h3 View
 
-        .col-lg-4.mb-3
-          .d-flex.justify-content-center
-            = link_to "#" do
-              .dashboard-button
-                .d-flex.h-100.justify-content-center.align-items-center
-                  .icon-info.text-center
-                    %h1
-                      %i.fa.fa-search{ "aria-hidden" => "true" }
-                    %h3 Search
+    .col-lg-4.mb-3
+      .d-flex.justify-content-center
+        = link_to "#" do
+          .dashboard-button
+            .d-flex.h-100.justify-content-center.align-items-center
+              .icon-info.text-center
+                %h1
+                  %i.fa.fa-search{ "aria-hidden" => "true" }
+                %h3 Search

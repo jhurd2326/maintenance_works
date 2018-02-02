@@ -1,0 +1,85 @@
+%h3.text-center.my-5 Problem Information
+
+.my-5
+  %h6 Is there a problem with a plumbing?
+  .radio-button-group.d-flex.justify-content-start
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :plumbing_problem, true, class: "md-radio"
+        = f.label :plumbing_problem, "Yes", value: "true"
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :plumbing_problem, false, class: "md-radio", checked: true
+        = f.label :plumbing_problem, "No", value: "false"
+
+.my-5
+  %h6 Is there a problem with a motor?
+  .radio-button-group.d-flex.justify-content-start
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :motor_problem, true, class: "md-radio"
+        = f.label :motor_problem, "Yes", value: "true"
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :motor_problem, false, class: "md-radio", checked: true
+        = f.label :motor_problem, "No", value: "false"
+
+.my-5
+  %h6 Is there an electric problem?
+  .radio-button-group.d-flex.justify-content-start
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :electric_problem, true, class: "md-radio"
+        = f.label :electric_problem, "Yes", value: "true"
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :electric_problem, false, class: "md-radio", checked: true
+        = f.label :electric_problem, "No", value: "false"
+
+.my-5
+  %h6 Is there a mechanical problem?
+  .radio-button-group.d-flex.justify-content-start
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :mechanical_problem, true, class: "md-radio"
+        = f.label :mechanical_problem, "Yes", value: "true"
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :mechanical_problem, false, class: "md-radio", checked: true
+        = f.label :mechanical_problem, "No", value: "false"
+
+.my-5
+  %h6 Is there a problem with the power supply?
+  .radio-button-group.d-flex.justify-content-start
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :power_problem, true, class: "md-radio"
+        = f.label :power_problem, "Yes", value: "true"
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :power_problem, false, class: "md-radio", checked: true
+        = f.label :power_problem, "No", value: "false"
+
+.my-5
+  %h6 Was there a problem with installation or training?
+  .radio-button-group.d-flex.justify-content-start
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :training_problem, true, class: "md-radio"
+        = f.label :training_problem, "Yes", value: "true"
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :training_problem, false, class: "md-radio", checked: true
+        = f.label :training_problem, "No", value: "false"
+
+.my-5
+  %h6 Is the problem different than the options listed above?
+  .radio-button-group.d-flex.justify-content-start
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :other_problem, true, class: "md-radio"
+        = f.label :other_problem, "Yes", value: "true"
+    .d-flex.mr-5
+      .mr-2
+        = f.radio_button :other_problem, false, class: "md-radio", checked: true
+        = f.label :other_problem, "No", value: "false"

@@ -15,9 +15,10 @@
 
 class Request < ApplicationRecord
   has_many :notes, dependent: :destroy
-  accepts_nested_attributes_for :notes
 
   belongs_to :hospital
   belongs_to :device
   belongs_to :user
+
+  attr_accessor :manufacturer, :model, :serial_number, :equipment_type, :note_content
 end
