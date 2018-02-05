@@ -1,30 +1,29 @@
 = content_for :title, "Sign Up"
 
-#intro.view.hm-black-slight.h-100
-  .container-fluid.full-bg-img.d-flex.align-items-center.justify-content-center.h-100
-    .row.d-flex.w-100
-      .col-lg-6.d-flex.align-items-center.justify-content-end
-        .col-sm-6
-          = image_tag("maintenanceWorks.png", class: "img-fluid")
-      .col-lg-6.d-flex.align-items-center.justify-content-start
-        .col-lg-5
-          %h2.white-text.text-center Register
-          = form_for @user do |f|
-            .md-form.my-5
-              %i.fa.fa-user-o.prefix.white-text
-              = f.text_field :username, class: "white-text"
-              = f.label :username, "Username"
-            .md-form.my-5
-              %i.fa.fa-envelope-o.prefix.white-text
-              = f.text_field :email, class: "white-text"
-              = f.label :email, "Email"
-            .md-form.my-5
-              %i.fa.fa-lock.prefix.white-text
-              = f.password_field :password, class: "white-text"
-              = f.label :password, "Password"
-            .md-form.my-5
-              %i.fa.fa-lock.prefix.white-text
-              = f.password_field :password_confirmation, class: "white-text"
-              = f.label :password_confirmation, "Password Confirmation"
-            .my-3.text-center
-              = f.submit "Register", class: "btn btn-default"
+.d-flex.align-items-center.justify-content-center.h-100
+  .row.d-flex.w-100
+    .col-lg-6.d-flex.align-items-center.justify-content-end
+      .col-sm-6
+        = image_tag("maintenanceWorks.png", class: "img-fluid")
+    .col-lg-6.d-flex.align-items-center.justify-content-start
+      .col-lg-5
+        %h2.white-text.text-center Register
+        = form_for @user do |f|
+          .md-form.my-5
+            %i.fa.fa-user-o.prefix.white-text
+            = f.text_field :username, class: "white-text"
+            = f.label :username, "Username"
+          .md-form.my-5
+            %i.fa.fa-envelope-o.prefix.white-text
+            = f.text_field :email, class: "white-text"
+            = f.label :email, "Email"
+          .md-form.my-5
+            %i.fa.fa-lock.prefix.white-text
+            = f.password_field :password, class: "white-text"
+            = f.label :password, "Password"
+          .md-form.my-5
+            %i.fa.fa-lock.prefix.white-text
+            = f.password_field :password_confirmation, class: "white-text"
+            = f.label :password_confirmation, "Password Confirmation"
+          .my-3.text-center
+            = f.submit "Register", class: "btn", style: "background-color: #c080fc"

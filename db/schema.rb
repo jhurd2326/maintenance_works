@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201220905) do
+ActiveRecord::Schema.define(version: 20180205190927) do
 
   create_table "devices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "cost"
@@ -45,17 +45,11 @@ ActiveRecord::Schema.define(version: 20180201220905) do
     t.integer "hospital_id"
     t.integer "device_id"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.boolean "repaired"
     t.boolean "abandoned"
-    t.boolean "plumbing_problem"
-    t.boolean "motor_problem"
-    t.boolean "electric_problem"
-    t.boolean "mechanical_problem"
-    t.boolean "power_problem"
-    t.boolean "training_problem"
-    t.boolean "other_problem"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "problem_type"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -21,4 +21,8 @@ class Request < ApplicationRecord
   belongs_to :user
 
   attr_accessor :manufacturer, :model, :serial_number, :equipment_type, :note_content
+
+  ProblemType::TYPES.each do |type|
+    define_method("#{type}_problem?") { problem_type == type }
+  end
 end

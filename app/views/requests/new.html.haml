@@ -26,7 +26,10 @@
             = f.text_field :serial_number
             = f.label :serial_number
 
-          = render 'problem_form', f: f
+          .form-group
+            = f.label :problem_type, class: "small"
+            = f.collection_select :problem_type, ProblemType::TYPES, :to_s,
+              :titleize, {include_blank: true}, {class: "custom-dropdown form-control"}
 
           .md-form.my-5
             = f.text_area :note_content, class: "md-textarea"

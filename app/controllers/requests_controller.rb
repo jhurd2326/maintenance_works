@@ -22,9 +22,8 @@ class RequestsController < ApplicationController
   private
 
   def request_params
-    params.require(:request).permit(:plumbing_problem, :motor_problem, :electric_problem,
-      :mechanical_problem, :power_problem, :training_problem, :other_problem, :manufacturer,
-      :model, :serial_number, :equipment_type, :note_content).merge(request_hash)
+    params.require(:request).permit(:problem_type, :manufacturer, :model, :serial_number,
+      :equipment_type, :note_content).merge(request_hash)
   end
 
   def request_hash
