@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    @user.password = user_params[:password]
+    if user_params[:password].length > 6 && @user.save
+      session[:user_id] = @user.id
       redirect_to dashboard_path
     else
       render :new
@@ -19,6 +21,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password)
   end
 end
