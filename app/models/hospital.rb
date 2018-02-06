@@ -17,6 +17,5 @@
 class Hospital < ApplicationRecord
   has_many :devices, dependent: :destroy
   has_many :requests, dependent: :destroy
-  has_many :verified_phone_numbers, dependent: :destroy
   has_many :users
 end
