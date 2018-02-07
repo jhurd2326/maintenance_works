@@ -58,3 +58,20 @@ a:hover
   border-left: none;
   border-bottom: solid 2px #4285F4;
 }
+
+.custom-group-item
+{
+  border-top: 1px solid #999999;
+  background-color: white;
+  padding: 12px;
+}
+
+.hover--grey:hover
+{
+  background-color: #dddddd;
+}
+
+.transparent-background
+{
+  background-color: transparent !important;
+}

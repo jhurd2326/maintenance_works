@@ -1,0 +1,19 @@
+.container-fluid.d-flex.justify-content-center
+  .col-xl-6
+    %ul.px-0
+      - @requests.each do |request|
+        .custom-group-item.hover--grey
+          = link_to [request], class: "black-text row" do
+            .col-5
+              %b Request #{request.id}
+              %br
+              %small #{request.device.manufacturer} - #{request.device.equipment_type}
+            .col-6
+              %small
+                Model: #{request.device.model}
+                %br
+                Serial Number: #{request.device.serial_number}
+            .col-1.d-flex.align-items-center
+              .icon= fa_icon "chevron-right"
+
+    = paginate @requests

@@ -3,6 +3,10 @@
 class RequestsController < ApplicationController
   before_action :find_or_create_device, only: [:create]
 
+  def index
+    @requests = Request.all.page(params[:page]).per(20)
+  end
+
   def new
     @request = Request.new
   end

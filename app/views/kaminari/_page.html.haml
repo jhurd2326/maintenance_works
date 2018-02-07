@@ -1,0 +1,6 @@
+%li.page-item{ class: "#{'active' if page.current?}" }
+  - if page.current?
+    .page-link.purple= page
+  - else
+    = link_to_unless page.current?, page, url,
+        { remote: remote, rel: page.rel, class: "page-link #{'purple' if page.current?} #{'white-text transparent-background' unless page.current?}" }

@@ -16,6 +16,8 @@
 #
 
 class Request < ApplicationRecord
+  include Searchable
+
   has_many :notes, dependent: :destroy
 
   belongs_to :hospital
@@ -23,6 +25,8 @@ class Request < ApplicationRecord
   belongs_to :user
 
   attr_accessor :manufacturer, :model, :serial_number, :equipment_type, :note_content
+
+  searchable_fields :problem_type, device: %i(serial_number model manufacturer equipment_type)
 
   ProblemType::TYPES.each do |type|
     define_method("#{type}_problem?") { problem_type == type }
