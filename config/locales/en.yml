@@ -30,4 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  time:
+    formats:
+      date_comma_time: "%B %d, %Y, %l:%M%P"
+      date_dash_time: "%B %d, %Y - %l:%M%P"
+      date_at_time: "%B %d, %Y at %l:%M%P"
+      full_month_with_year: "%B %d, %Y"

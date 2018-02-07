@@ -1,19 +1,33 @@
 .container-fluid.d-flex.justify-content-center
-  .col-xl-6
-    %ul.px-0
-      - @requests.each do |request|
-        .custom-group-item.hover--grey
-          = link_to [request], class: "black-text row" do
-            .col-5
-              %b Request #{request.id}
-              %br
-              %small #{request.device.manufacturer} - #{request.device.equipment_type}
-            .col-6
-              %small
-                Model: #{request.device.model}
-                %br
-                Serial Number: #{request.device.serial_number}
-            .col-1.d-flex.align-items-center
-              .icon= fa_icon "chevron-right"
+  .col-lg-8.col-xl-6
 
-    = paginate @requests
+    = form_tag requests_path, method: :get do
+      .input-group.md-form.form-sm.form-1.pl-0
+        %button.input-group-addon.purple.lighten-3.with-icon.cursor-pointer{ type: :submit }
+          %i.fa.fa-search.text-white{ "aria-hidden" => "true" }
+        = text_field_tag :q, params[:q], autocomplete: "off",
+            placeholder: "Search", class: "form-control my-0 py-1", "aria-label" => "Search"
+
+    - if @requests.present?
+      %ul.px-0
+        - @requests.each do |request|
+          .custom-group-item.hover--grey
+            = link_to [request], class: "black-text row" do
+              .col-5.d-flex.align-items-center
+                .content
+                  %b Request #{request.id}
+                  %br
+                  %small #{I18n.localize request.created_at, format: :full_month_with_year}
+              .col-6
+                %small
+                  #{request.device.manufacturer} - #{request.device.equipment_type}
+                  %br
+                  Model: #{request.device.model}
+                  %br
+                  Serial Number: #{request.device.serial_number}
+              .col-1.d-flex.align-items-center
+                .icon= fa_icon "chevron-right"
+
+      = paginate @requests
+    - else
+      %h1.white-text.text-center No Maintenance Requests Found

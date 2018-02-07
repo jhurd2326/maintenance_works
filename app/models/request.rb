@@ -26,7 +26,7 @@ class Request < ApplicationRecord
 
   attr_accessor :manufacturer, :model, :serial_number, :equipment_type, :note_content
 
-  searchable_fields :problem_type, device: %i(serial_number model manufacturer equipment_type)
+  searchable_fields :id, :problem_type, device: %i(serial_number model manufacturer equipment_type)
 
   ProblemType::TYPES.each do |type|
     define_method("#{type}_problem?") { problem_type == type }

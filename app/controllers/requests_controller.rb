@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
   before_action :find_or_create_device, only: [:create]
 
   def index
-    @requests = Request.all.page(params[:page]).per(20)
+    @requests = Request.includes(:device).order(created_at: :desc).search(params[:q]).page(params[:page]).per(15)
   end
 
   def new
