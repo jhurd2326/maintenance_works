@@ -17,5 +17,12 @@
         - if logged_in?
           = link_to "Logout", logout_path, class: "nav-item nav-link"
 
+    -if flash.notice.present?
+      #info-message.w-100
+        .container.h-100
+          .row.d-flex.justify-content-center.h-100
+            .col-xl-8.col-lg-8.white-text.stylish-color.text-center
+              %p.pt-3
+                = flash.notice
 
     = yield

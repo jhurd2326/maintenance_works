@@ -24,6 +24,9 @@ class Request < ApplicationRecord
   belongs_to :device
   belongs_to :user
 
+  validates :device_id, presence: true
+  validates :problem_type, presence: true
+
   attr_accessor :manufacturer, :model, :serial_number, :equipment_type, :note_content
 
   searchable_fields :id, :problem_type, device: %i(serial_number model manufacturer equipment_type)

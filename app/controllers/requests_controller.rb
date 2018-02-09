@@ -23,6 +23,7 @@ class RequestsController < ApplicationController
       create_note
       redirect_to dashboard_path
     else
+      flash.now[:notice] = @request.errors.full_messages.to_sentence
       render :new
     end
   end

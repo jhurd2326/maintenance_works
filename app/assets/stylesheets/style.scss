@@ -85,3 +85,10 @@ a:hover
   border: none !important;
   border-radius: 0rem !important;
 }
+
+#info-message {
+  height: 50px;
+  position: fixed;
+  bottom:0%;
+  z-index: 100;
+}
