@@ -7,6 +7,10 @@ class RequestsController < ApplicationController
     @requests = Request.includes(:device).order(created_at: :desc).search(params[:q]).page(params[:page]).per(15)
   end
 
+  def show
+    @request = Request.find(params[:id])
+  end
+
   def new
     @request = Request.new
   end
@@ -21,6 +25,16 @@ class RequestsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def abandoned
+    Request.find(params[:id]).update(abandoned: true)
+    redirect_to requests_path
+  end
+
+  def repaired
+    Request.find(params[:id]).update(repaired: true)
+    redirect_to requests_path
   end
 
   private

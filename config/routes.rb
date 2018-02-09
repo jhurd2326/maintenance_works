@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   root "sessions#new"
 
   resources :users
-  resources :requests
+  resources :requests do
+    get :abandoned, on: :member
+    get :repaired, on: :member
+  end
   resources :notes
 end

@@ -1,0 +1,37 @@
+.container.d-flex.justify-content-center
+  .col-xl-8.card.pb-5
+    - if @request.open?
+      .status-buttons.mt-2.d-flex.justify-content-end
+        = link_to "Abandoned", abandoned_request_path(@request), class: "btn btn-danger"
+        = link_to "Repaired", repaired_request_path(@request), class: "btn custom-purple-light"
+
+    .row.text-center.mt-5
+      .col-12
+        %h1 Maintenance Request #{@request.id}
+        %b.mr-2 Status:
+        #{@request.status.titleize}
+
+    .row.d-flex.justify-content-center
+      .col-8
+        %h3.text-center.my-5 Device Information
+
+        %p
+          %b.mr-2 Equipment Type:
+          #{@request.device.equipment_type}
+
+        %p
+          %b.mr-2 Manufacturer:
+          #{@request.device.manufacturer}
+
+        %p
+          %b.mr-2 Model:
+          #{@request.device.model}
+
+        %p
+          %b.mr-2 Serial Number:
+          #{@request.device.serial_number}
+
+        %h3.text-center.my-5 Problem Information
+        %p
+          %b.mr-2 Problem Type:
+          #{@request.problem_type.titleize}

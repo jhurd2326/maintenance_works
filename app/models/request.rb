@@ -28,6 +28,28 @@ class Request < ApplicationRecord
 
   searchable_fields :id, :problem_type, device: %i(serial_number model manufacturer equipment_type)
 
+  def status
+    return "open" unless repaired || abandoned
+    return "repaired" if repaired
+    "abandoned"
+  end
+
+  def open?
+    status == "open"
+  end
+
+  def closed?
+    status != "open"
+  end
+
+  def repaired?
+    repaired
+  end
+
+  def abandoned?
+    abandoned
+  end
+
   ProblemType::TYPES.each do |type|
     define_method("#{type}_problem?") { problem_type == type }
   end

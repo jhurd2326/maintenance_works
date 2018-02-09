@@ -26,6 +26,7 @@
             = f.text_field :serial_number
             = f.label :serial_number
 
+          %h3.text-center.my-5 Problem Information
           .form-group
             = f.label :problem_type, class: "small"
             = f.collection_select :problem_type, ProblemType::TYPES, :to_s,
