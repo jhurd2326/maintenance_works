@@ -1,5 +1,5 @@
 .container.d-flex.justify-content-center
-  .col-xl-8.card.pb-5
+  .col-xl-8.content-card.pb-5
     - if @request.open?
       .status-buttons.mt-2.d-flex.justify-content-end
         = link_to "Abandoned", abandoned_request_path(@request), class: "btn btn-danger"

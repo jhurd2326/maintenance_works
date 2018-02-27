@@ -1,0 +1,29 @@
+date_cell:
+  row: 6
+  col: C
+country_cell:
+  row: 7
+  col: C
+engineer_name_cell:
+  row: 6
+  col: K
+hospital_cell:
+  row: 7
+  col: K
+
+first_request_row: 10
+
+equipment_type_col: B
+manufacturer_col: C
+model_number_col: D
+serial_number_col: E
+plumbing_prob_col: F
+motor_prob_col: G
+electric_prob_col: H
+mechanical_prob_col: I
+power_prob_col: J
+installation_prob_col: K
+other_prob_col: L
+notes_col: M
+repaired_col: N
+abandoned_col: O

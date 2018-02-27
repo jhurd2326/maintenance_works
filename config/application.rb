@@ -13,6 +13,12 @@ module MaintenanceWorks
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    csv_yaml = File.join(::Rails.root, "config", "csv.yml")
+    if File.exist?(csv_yaml)
+      config.csv =
+        YAML.load_file(csv_yaml)&.deep_symbolize_keys!
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

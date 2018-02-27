@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get "/register", to: "users#new"
   get "/logout", to: "sessions#destroy"
   get "/dashboard", to: "static_pages#dashboard"
+  get "/upload_requests", to: "uploads#new"
+  post "/upload_requests", to: "uploads#create"
 
   root "sessions#new"
 
