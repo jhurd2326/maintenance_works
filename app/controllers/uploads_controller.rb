@@ -6,13 +6,8 @@ class UploadsController < ApplicationController
   end
 
   def create
-    @upload = SpreadsheetUpload.new(upload_params.merge(user: current_user))
-    if @upload.process_files
-      redirect_to dashboard_path, notice: "File upload successful"
-    else
-      flash.now[:notice] = "File upload unsuccessful"
-      render :new
-    end
+    SpreadsheetUploadWorker.perform_async(files: upload_params[:files].map(&:path), user: current_user.id)
+    redirect_to dashboard_path
   end
 
   private

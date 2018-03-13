@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+/dump.rdb
+
 /config/secrets.yml
 /config/database.yml
 

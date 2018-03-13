@@ -21,7 +21,7 @@ class SpreadsheetUpload
   private
 
   def read_spreadsheet(file)
-    @spreadsheet = Roo::Spreadsheet.open(file.tempfile)
+    @spreadsheet = Roo::Spreadsheet.open(file)
     return false unless @spreadsheet
     process_spreadsheet
   end
@@ -99,5 +99,6 @@ class SpreadsheetUpload
 
   def set_config
     assign_attributes Rails.configuration.csv
+    @user = User.find(@user)
   end
 end
