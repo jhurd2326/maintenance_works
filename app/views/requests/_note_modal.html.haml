@@ -1,0 +1,20 @@
+#modalNoteForm.modal.fade{tabindex: "-1", role: "dialog", "aria-labelledby" => "myModalLabel", "aria-hidden" => "true"}
+  .modal-dialog{ role: "document" }
+    .modal-content
+      .modal-header.text-center.mb-2
+        %h4.modal-title.w-100.font-weight-bold
+          New Note
+          %button.close{ type: "button", "data-dismiss" => "modal", "aria-label" => "Close" }
+            %span{ "aria-hidden" => "true" } &times;
+
+      = form_for note do |f|
+        .modal-body.mx-3
+          = f.hidden_field :request_id
+          = f.hidden_field :user_id
+
+          .md-form.mb-5.mx-2
+            = f.text_area :content, class: "md-textarea"
+            = f.label :content
+
+        .modal-footer.d-flex.justify-content-center
+          = f.submit "Create", class: "btn custom-purple-light"

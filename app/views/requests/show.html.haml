@@ -11,27 +11,49 @@
         %b.mr-2 Status:
         #{@request.status.titleize}
 
-    .row.d-flex.justify-content-center
-      .col-8
-        %h3.text-center.my-5 Device Information
+    .row.justify-content-center
+      .col-10
+        %h3.my-5 Device Information
+        .mx-4
+          %p
+            %b.mr-2 Equipment Type:
+            #{@request.device.equipment_type}
 
-        %p
-          %b.mr-2 Equipment Type:
-          #{@request.device.equipment_type}
+          %p
+            %b.mr-2 Manufacturer:
+            #{@request.device.manufacturer}
 
-        %p
-          %b.mr-2 Manufacturer:
-          #{@request.device.manufacturer}
+          %p
+            %b.mr-2 Model:
+            #{@request.device.model}
 
-        %p
-          %b.mr-2 Model:
-          #{@request.device.model}
+          %p
+            %b.mr-2 Serial Number:
+            #{@request.device.serial_number}
 
-        %p
-          %b.mr-2 Serial Number:
-          #{@request.device.serial_number}
+    .row.justify-content-center
+      .col-10
+        %h3.my-5 Problem Information
+        .mx-4
+          %p
+            %b.mr-2 Problem Type:
+            #{@request.problem_type.titleize}
 
-        %h3.text-center.my-5 Problem Information
-        %p
-          %b.mr-2 Problem Type:
-          #{@request.problem_type.titleize}
+          %p
+            %b.mr-2 Submitted On:
+            #{@request.created_at.strftime('%B %e, %Y')}
+
+
+    = render partial: "note_modal", locals: { note: @note }
+
+    .row.justify-content-center
+      .col-10
+        .mt-5.mb-3.d-flex.justify-content-between
+          %h3
+            Notes
+            %small (#{@request.notes.count})
+          = link_to "Add", "", class: "btn custom-purple-light", "data-toggle" => "modal", "data-target" => "#modalNoteForm"
+        .note.mx-4.mb-2
+          - @request.notes.each do |note|
+            %b #{note.user.username}:
+            %p.ml-4 #{note.content}

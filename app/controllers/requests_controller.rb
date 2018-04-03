@@ -9,6 +9,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
+    @note = Note.new(request: @request, user: current_user)
   end
 
   def new
