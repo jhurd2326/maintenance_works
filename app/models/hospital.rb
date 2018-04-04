@@ -15,6 +15,8 @@
 #
 
 class Hospital < ApplicationRecord
+  validates :name, presence: true
+  
   has_many :devices, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :users

@@ -3,8 +3,8 @@
     .col-12.text-center
       %h1.text-white Maintenance Requests
 
-  .row
-    .mb-3{class: current_user.system_admin? ? "col-lg-4" : "col-lg-6"}
+  .row.d-flex.justify-content-center
+    .mb-3.col-lg-4
       .d-flex.justify-content-center
         = link_to new_request_path do
           .dashboard-button
@@ -14,7 +14,7 @@
                   %i.fa.fa-wrench{ "aria-hidden" => "true" }
                 %h3 New
 
-    .mb-3{class: current_user.system_admin? ? "col-lg-4" : "col-lg-6"}
+    .mb-3.col-lg-4
       .d-flex.justify-content-center
         = link_to requests_path do
           .dashboard-button
@@ -34,3 +34,29 @@
                   %h1
                     %i.fa.fa-upload{ "aria-hidden" => "true" }
                   %h3 Upload
+
+  - if current_user.system_admin?
+    .row.my-5
+      .col-12.text-center
+        %h1.text-white Hospitals
+
+    .row.d-flex.justify-content-center
+      .mb-3.col-lg-4
+        .d-flex.justify-content-center
+          = link_to new_hospital_path do
+            .dashboard-button
+              .d-flex.h-100.justify-content-center.align-items-center
+                .icon-info.text-center
+                  %h1
+                    %i.fa.fa-heartbeat{ "aria-hidden" => "true" }
+                  %h3 New
+
+      .mb-3.col-lg-4
+        .d-flex.justify-content-center
+          = link_to "#" do
+            .dashboard-button
+              .d-flex.h-100.justify-content-center.align-items-center
+                .icon-info.text-center
+                  %h1
+                    %i.fa.fa-list{ "aria-hidden" => "true" }
+                  %h3 View

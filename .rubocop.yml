@@ -28,9 +28,14 @@ Style/TrailingCommaInArguments:
   # parenthesized method calls where each argument is on its own line.
   EnforcedStyleForMultiline: comma
 
-Style/TrailingCommaInLiteral:
-  # If `comma`, the cop requires a comma after the last item in an array or
-  # hash, but only when each item is on its own line.
+Style/TrailingCommaInArrayLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array,
+  # but only when each item is on its own line.
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  # If `comma`, the cop requires a comma after the last item in a hash,
+  # but only when each item is on its own line.
   EnforcedStyleForMultiline: comma
 
 Style/MutableConstant:
